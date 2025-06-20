@@ -8,11 +8,11 @@
 		<version>3.5.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.cicd</groupId>
+	<groupId>io.github.yajanth</groupId>
 	<artifactId>clutch</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>clutch</name>
-	<description>Demo project for Spring Boot</description>
+	<description>The Next Generation of Distributed Job Queue Engine.</description>
 	<url/>
 	<licenses>
 		<license/>
