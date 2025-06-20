@@ -1,2 +1,4 @@
 /.metadata/
 configServer.zip
+configServer/src/main/resources/.env
+configServer/.env

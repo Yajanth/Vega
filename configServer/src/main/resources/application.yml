@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: "ConfigServer(Vega)"
+  cloud:
+    config:
+      server:
+        git:
+          username: ${GIT_USERNAME}
+          password: ${GIT_PASSWORD}
+          uri: ${GIT_URL}
+          clone-on-start: true
+
+server:
+  port: 8888
