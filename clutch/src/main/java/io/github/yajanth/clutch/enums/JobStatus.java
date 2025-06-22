@@ -1,4 +1,4 @@
-package com.cicd.clutch.enums;
+package io.github.yajanth.clutch.enums;
 
 public enum JobStatus {
 	PENDING,

@@ -1,4 +1,4 @@
-package com.cicd.clutch.controller;
+package io.github.yajanth.clutch.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cicd.clutch.entity.Job;
-import com.cicd.clutch.enums.JobStatus;
-import com.cicd.clutch.redis.RedisQueuePublisher;
-import com.cicd.clutch.service.ClutchService;
+import io.github.yajanth.clutch.entity.Job;
+import io.github.yajanth.clutch.enums.JobStatus;
+import io.github.yajanth.clutch.queue.RedisQueuePublisher;
+import io.github.yajanth.clutch.service.ClutchService;
 
 @RestController
 @RequestMapping("/v1")

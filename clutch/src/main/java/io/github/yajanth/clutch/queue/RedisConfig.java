@@ -1,4 +1,4 @@
-package com.cicd.clutch.redis;
+package io.github.yajanth.clutch.queue;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

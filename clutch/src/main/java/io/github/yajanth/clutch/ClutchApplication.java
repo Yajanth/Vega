@@ -1,4 +1,4 @@
-package com.cicd.clutch;
+package io.github.yajanth.clutch;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,10 +1,9 @@
-package com.cicd.clutch.entity;
+package io.github.yajanth.clutch.entity;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import com.cicd.clutch.enums.JobStatus;
-
+import io.github.yajanth.clutch.enums.JobStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

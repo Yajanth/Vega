@@ -1,4 +1,4 @@
-package com.cicd.clutch.repository;
+package io.github.yajanth.clutch.repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,8 +10,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.cicd.clutch.entity.Job;
-import com.cicd.clutch.enums.JobStatus;
+import io.github.yajanth.clutch.entity.Job;
+import io.github.yajanth.clutch.enums.JobStatus;
 
 @Repository
 public interface ClutchRepository extends JpaRepository<Job, UUID> {

@@ -1,4 +1,4 @@
-package com.cicd.clutch;
+package io.github.yajanth.clutch;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
