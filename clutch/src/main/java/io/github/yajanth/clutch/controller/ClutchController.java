@@ -17,16 +17,16 @@ import org.springframework.web.bind.annotation.RestController;
 import io.github.yajanth.clutch.entity.Job;
 import io.github.yajanth.clutch.enums.JobStatus;
 import io.github.yajanth.clutch.queue.RedisQueuePublisher;
-import io.github.yajanth.clutch.service.ClutchService;
+import io.github.yajanth.clutch.service.JobService;
 
 @RestController
 @RequestMapping("/v1")
 public class ClutchController {
 	
-	private final ClutchService clutchservice;
+	private final JobService clutchservice;
 	private final RedisQueuePublisher redisQueuePublisher;
 
-	public ClutchController(ClutchService clutchservice , RedisQueuePublisher redisQueuePublisher) {
+	public ClutchController(JobService clutchservice , RedisQueuePublisher redisQueuePublisher) {
 		this.clutchservice = clutchservice;
 		this.redisQueuePublisher= redisQueuePublisher; 
 	}
@@ -47,7 +47,7 @@ public class ClutchController {
 	
 	@PatchMapping("jobs/{id}/{status}")
 	public ResponseEntity<UUID> updateStatus(@PathVariable UUID id,@PathVariable JobStatus status) {
-		 JobStatus status1=clutchservice.updateClutchStatus(id, status);
+		 JobStatus status1=clutchservice.updateJobStatus(id, status);
 		return new ResponseEntity<>(id,HttpStatus.OK);
 		
 	}

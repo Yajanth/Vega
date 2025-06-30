@@ -14,7 +14,7 @@ import io.github.yajanth.clutch.entity.Job;
 import io.github.yajanth.clutch.enums.JobStatus;
 
 @Repository
-public interface ClutchRepository extends JpaRepository<Job, UUID> {
+public interface JobRepository extends JpaRepository<Job, UUID> {
 	
 	List<Job> findAll();
 	

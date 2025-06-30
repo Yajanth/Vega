@@ -9,30 +9,30 @@ import org.springframework.stereotype.Service;
 
 import io.github.yajanth.clutch.entity.Job;
 import io.github.yajanth.clutch.enums.JobStatus;
-import io.github.yajanth.clutch.repository.ClutchRepository;
+import io.github.yajanth.clutch.repository.JobRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 
 @Service
-public class ClutchService {
+public class JobService {
 	
-	private final ClutchRepository clutchRepo;
+	private final JobRepository jobRepo;
 	
-	public ClutchService(ClutchRepository clutchRepos) {
-		this.clutchRepo=clutchRepos;
+	public JobService(JobRepository clutchRepos) {
+		this.jobRepo=clutchRepos;
 	}
 	
 	public Job createJob(Job job) {
-		return clutchRepo.save(job);
+		return jobRepo.save(job);
 	}
 	
 	public List<Job> getAllJobs(){
-		return clutchRepo.findAll();
+		return jobRepo.findAll();
 	}
 	@Transactional
-	public JobStatus updateClutchStatus(UUID id, JobStatus status) {
-	    int updated = clutchRepo.updateStatus(id, status);
+	public JobStatus updateJobStatus(UUID id, JobStatus status) {
+	    int updated = jobRepo.updateStatus(id, status);
 	    if (updated == 0) {
 	        throw new EntityNotFoundException("Job not found.");
 	    }
