@@ -30,7 +30,7 @@ public class Job {
 	private String task_type;
 	
 	@Column(name="PAYLOAD")
-	private String playload;
+	private String payload;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name="JOB_STATUS")
