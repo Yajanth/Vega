@@ -1,16 +1,13 @@
 package io.github.yajanth.clutch.service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import io.github.yajanth.clutch.entity.Job;
 import io.github.yajanth.clutch.enums.JobStatus;
 import io.github.yajanth.clutch.repository.JobRepository;
-import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 

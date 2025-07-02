@@ -10,8 +10,11 @@ A distributed job queue engine where producers submit tasks via REST API, which 
   - Monitoring: Prometheus + Alertmanager.
 
 ## Connections:
-  Job Producers → Job Queue: Add job (with JSON payload).
-  Job Queue → Workers: Workers pull jobs atomically (XREADGROUP).
-  Workers → Job State DB: Update status (e.g., "processing" → "done").
-  Workers → Dead Letter Queue: Push failed jobs after retries.
-  Monitoring ← Job Queue/Workers/DB: Track all metrics.
+- Job Producers → Job Queue: Add job (with JSON payload).
+- Job Queue → Workers: Workers pull jobs atomically (XREADGROUP).
+- Workers → Job State DB: Update status (e.g., "processing" → "done").
+- Workers → Dead Letter Queue: Push failed jobs after retries.
+- Monitoring ← Job Queue/Workers/DB: Track all metrics.
+
+## Architecture
+![Vega Architecture](assests/VegaArchitecture.png)

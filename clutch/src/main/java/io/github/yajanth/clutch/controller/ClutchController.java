@@ -1,7 +1,6 @@
 package io.github.yajanth.clutch.controller;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
