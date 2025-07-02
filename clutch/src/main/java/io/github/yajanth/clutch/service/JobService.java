@@ -20,7 +20,7 @@ public class JobService {
 	private final JobRepository jobRepo;
 	
 	public JobService(JobRepository clutchRepos) {
-		this.jobRepo=clutchRepos;
+		this.jobRepo = clutchRepos;
 	}
 	
 	public Job createJob(Job job) {

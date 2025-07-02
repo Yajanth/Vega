@@ -2,3 +2,4 @@
 configServer.zip
 configServer/src/main/resources/.env
 configServer/.env
+configServer/.env.properties
