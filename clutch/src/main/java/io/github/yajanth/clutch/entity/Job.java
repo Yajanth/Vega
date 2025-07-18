@@ -3,8 +3,10 @@ package io.github.yajanth.clutch.entity;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import io.github.yajanth.clutch.convertor.PayloadConverter;
 import io.github.yajanth.clutch.enums.JobStatus;
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -27,13 +29,16 @@ public class Job {
 	
 	@Column(name="TASK_TYPE")
 	private String task_type;
-	
-	@Column(name="PAYLOAD")
+
+	@Column(name="PAYLOAD", columnDefinition = "jsonb")
 	private String payload;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name="JOB_STATUS")
 	private JobStatus jobStatus = JobStatus.PENDING ;
+	
+	@Column(name="JOB_QUEUE")
+	private String JobQueue = "queue:default" ;
 	
 	@Column(name="CREATED_AT")
 	private LocalDateTime createdAt;

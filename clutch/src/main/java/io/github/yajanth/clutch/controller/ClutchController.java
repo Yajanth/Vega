@@ -1,6 +1,7 @@
 package io.github.yajanth.clutch.controller;
 
 import java.util.List;
+
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
@@ -14,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.github.yajanth.clutch.entity.Job;
+import io.github.yajanth.clutch.entity.JobRequest;
 import io.github.yajanth.clutch.enums.JobStatus;
-import io.github.yajanth.clutch.queue.RedisQueuePublisher;
+import io.github.yajanth.clutch.mapper.JobMapper;
+import io.github.yajanth.clutch.queue.QueueService;
 import io.github.yajanth.clutch.service.JobService;
 
 @RestController
@@ -23,23 +26,24 @@ import io.github.yajanth.clutch.service.JobService;
 public class ClutchController {
 	
 	private final JobService clutchservice;
-	private final RedisQueuePublisher redisQueuePublisher;
+	private final QueueService queueService;
+	
 
-	public ClutchController(JobService clutchservice , RedisQueuePublisher redisQueuePublisher) {
+	public ClutchController(JobService clutchservice , QueueService queueService) {
 		this.clutchservice = clutchservice;
-		this.redisQueuePublisher= redisQueuePublisher; 
+		this.queueService= queueService; 
 	}
 	
 	@PostMapping("/jobs")
 	public ResponseEntity<Job> addJob(@RequestBody Job job){
 	    try {
-	        clutchservice.createJob(job);
-	        String message = job.getJobId().toString();
-	        redisQueuePublisher.publish(message);
+	        Job newJob = clutchservice.createJob(job);
+	        JobRequest jobRequest = JobMapper.toJobRequest(job); 
+	        queueService.pushJob(jobRequest);
 	        return ResponseEntity.ok(job);
 	    } catch (Exception e) {
 	        // log error, return meaningful error response
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+	        return new ResponseEntity(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 	    }
 		
 	}
@@ -59,7 +63,7 @@ public class ClutchController {
 	
 	@GetMapping("/check")
 	public String testPoint() {
-		return "---Clutch Jobs is running!!!---";
+		return "---Clutch Jobs is running!!!!---";
 	}
 	
 	
