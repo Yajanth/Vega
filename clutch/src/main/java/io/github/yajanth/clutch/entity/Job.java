@@ -1,9 +1,9 @@
 package io.github.yajanth.clutch.entity;
 
 import java.time.LocalDateTime;
+
 import java.util.UUID;
 
-import io.github.yajanth.clutch.convertor.PayloadConverter;
 import io.github.yajanth.clutch.enums.JobStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
